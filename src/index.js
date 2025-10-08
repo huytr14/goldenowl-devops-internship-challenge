@@ -1,7 +1,12 @@
-require('dotenv').config()
+// index.js
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-const server = require('./server')
+app.get('/', (_req, res) => {
+  res.json({ message: 'Welcome warriors to Golden Owl!' });
+});
 
-const PORT = process.env.PORT || 3000
-
-server.listen(PORT, () => console.log(`Server is live at localhost:${PORT}`))
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
